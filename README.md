@@ -19,19 +19,23 @@ This solution uses a heuristic-based approach and works fully offline. No machin
 # Folder Structure
 
 ├── main.py # Main script to extract title and outline
+
 ├── Dockerfile # Docker configuration
+
 ├── requirements.txt # Python dependencies
+
 ├── input/ # Input PDF files
+
 ├── output/ # Output JSON files
 
 
 # Build Command
 
+docker build --platform linux/amd64 -t pdf-extractor:challenge_1a .
+
 # Run the Docker image
 
-Open a terminal in the project directory and run:
-
-
+docker run --rm -v ${PWD}\input:/app/input -v ${PWD}\output:/app/output --network none pdf-extractor:challenge_1a
 
 # Output Format
 
